@@ -10,5 +10,26 @@
   <%= @destination.description %>
 </p>
 
+<table>
+	<tr>
+		<th>Activity</th>
+		<th>Date</th>
+		<th>Addresse</th>
+		<th>Description</th>
+	</tr>
+	<% @destination.activities.each do |activity| %>
+	<tr>
+		<td><%= link_to activity.name, destination_activity_path(@trip, activity) %></td>
+		<td><%= activity.date %></td>
+		<td><%= activity.addresse %></td>
+		<td><%= activity.description %></td>
+	</tr>
+	<% end %>
+</table>
+
+<p>
+  <%= link_to 'New Activity', new_destination_activity_path(@destination) %>
+</p>
+
 <%= link_to 'Edit', edit_trip_destination_path(@trip, @destination) %> |
 <%= link_to 'Back', trip_path(@trip) %>

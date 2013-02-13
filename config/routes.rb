@@ -1,6 +1,13 @@
 Wandrr::Application.routes.draw do
 
-  resources :destinations, only: :index
+  devise_for :users
+
+  resources :activities #, only: :index
+
+  resources :destinations, only: :index do
+    resources :activities
+  end
+
 
   resources :trips do
     resources :destinations

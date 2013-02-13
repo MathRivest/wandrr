@@ -15,13 +15,9 @@
     <td><%= destination.name %></td>
     <td><%= destination.trip.name %></td>
     <td><%= destination.description %></td>
-    <td><%= link_to 'Show', destination %></td>
-    <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
-    <td><%= link_to 'Destroy', destination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', trip_destination_path(destination.trip.id, destination.id) %></td>
+    <td><%= link_to 'Edit', edit_trip_destination_path(destination.trip.id, destination.id) %></td>
+    <td><%= link_to 'Destroy', trip_destination_path(destination.trip.id, destination.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Destination', new_destination_path %>
